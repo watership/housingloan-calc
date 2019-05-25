@@ -1,0 +1,28 @@
+{
+  "name": "housingloan-calc",
+  "version": "1.0.0",
+  "description": "[English](README-en.md) | 简体中文",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/watership/housing-loan-calc.git"
+  },
+  "keywords": [
+    "housing",
+    "loan",
+    "calc",
+    "房贷计算器"
+  ],
+  "author": "watership",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/watership/housing-loan-calc/issues"
+  },
+  "homepage": "https://github.com/watership/housing-loan-calc#readme",
+  "dependencies": {
+    "big.js": "^5.2.2"
+  }
+}
