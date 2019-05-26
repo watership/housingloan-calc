@@ -6,15 +6,15 @@
 
 ## Mathematical formula
 
-### 等额本息计算方式
+### Equal principal and interest calculation method
 
-等额本息：每月按相等的金额偿还贷款本息，其中本金逐月递增，利息逐月递减，月还款额不变。
-![等额本息计算方式](./images/1.png)
+Equal principal and interest: The principal and interest of the loan will be repaid in an equal amount each month, in which the principal is increased month by month, the interest is declining month by month, and the monthly repayment amount is unchanged.
+![Equal principal and interest calculation method](./images/1.png)
 
-### 等额本金计算方式
+### Equal principal calculation
 
-等额本金：每月按相等的金额偿还贷款本金，其中本金保持相同，利息逐月递减，月还款额越来越少。
-![等额本金计算方式](./images/2.png)
+Equal principal: The principal of the loan is repaid in an equal amount each month, in which the principal remains the same, the interest is decremented month by month, and the monthly repayment amount is less and less.
+![Equal principal calculation](./images/2.png)
 
 ## How to use
 
