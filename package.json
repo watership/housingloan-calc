@@ -1,6 +1,6 @@
 {
   "name": "housingloan-calc",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "housing loan calc for Chinese",
   "main": "index.js",
   "scripts": {

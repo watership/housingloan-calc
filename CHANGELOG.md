@@ -1,3 +1,7 @@
+#### 1.0.2
+
+* add English readme.md
+
 #### 1.0.1
 
 * fixbug: Instructions
