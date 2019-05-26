@@ -2,7 +2,7 @@
 
 # HousingLoanCalc 房贷计算器
 
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/watership/housing-loan-calc/blob/master/LICENSE)
+![npm](https://img.shields.io/npm/dm/housingloan-calc.svg)  [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/watership/housing-loan-calc/blob/master/LICENSE)
 
 ## 计算的数学公式
 
@@ -30,13 +30,13 @@ $ npm install housingloan-calc
 ```
 
 ```javascript
-const housingloanCalc = require('housingloan-calc.js');
+const housingloanCalc = require('housingloan-calc');
 ```
 
 ES6 module:
 
 ```javascript
-import housingloanCalc from 'housingloan-calc.js';
+import housingloanCalc from 'housingloan-calc';
 const [loan, year, rate] = [100, 25, 4.9];
 
 // 等额本息

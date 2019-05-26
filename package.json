@@ -1,7 +1,7 @@
 {
   "name": "housingloan-calc",
-  "version": "1.0.0",
-  "description": "[English](README-en.md) | 简体中文",
+  "version": "1.0.1",
+  "description": "housing loan calc for Chinese",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
