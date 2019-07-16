@@ -1,6 +1,6 @@
 import Big from "big.js";
 
-interface DataBase {
+interface housingloanBase {
     type: string;
     loan: string;
     total: string;
@@ -18,7 +18,7 @@ interface monthlyData {
     surplus: string;
 }
 
-const fixCalc = function(loan: number, year: number, rate: number):DataBase {
+const fixCalc = function(loan: number, year: number, rate: number):housingloanBase {
         let oldLoan = loan;
         let loanCalc: Big = Big(loan).times(10000);
         let months: number = parseInt(Big(year).times(12).toFixed(0));
@@ -46,7 +46,7 @@ const fixCalc = function(loan: number, year: number, rate: number):DataBase {
         }
 }
 
-const capitalCalc = function(loan: number, year: number, rate: number): DataBase {
+const capitalCalc = function(loan: number, year: number, rate: number): housingloanBase {
     let oldLoan = loan;
     let loanCalc: Big = Big(loan).times(10000);
     let months: number = parseInt(Big(year).times(12).toString());
