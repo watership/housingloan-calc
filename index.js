@@ -21,8 +21,8 @@ var fixCalc = function (loan, year, rate) {
         interest: interest.toFixed(2),
         months: months.toString(),
         repaymentMonthly: repaymentMonthly.toFixed(2),
-        incomeMonthly: incomeMonthly.toString(),
-        monthlyData: [1, 2, 3]
+        incomeMonthly: incomeMonthly.toFixed(2),
+        monthlyData: ''
     };
 };
 exports.fixCalc = fixCalc;
@@ -44,20 +44,27 @@ var capitalCalc = function (loan, year, rate) {
     var total = big_js_1["default"](oldLoan).plus(interest);
     var repaymentMonthly = e.plus(f);
     var incomeMonthly = repaymentMonthly.times(2);
-    function calc(n) {
-        var monthlyRepay = a;
-        var g = loanCalc.minus(a.times(n - 1));
-        var h = g.times(rateMounth);
-        var monthlyInterest = h;
-        var monthlyAll = monthlyRepay.plus(monthlyInterest);
-        var surplus = loanCalc.minus(a.times(n));
-        return {
-            monthlyRepay: monthlyRepay.toFixed(2),
-            monthlyInterest: monthlyInterest.toFixed(2),
-            monthlyAll: monthlyAll.toFixed(2),
-            surplus: surplus.toFixed(2)
-        };
-    }
+    // function calc(n: number, m: number): Array<number>{
+    //     const calcMonthly = (n: number)=>{
+    //         let monthlyRepay = a;
+    //         const g = loanCalc.minus(a.times(n-1));
+    //         const h = g.times(rateMounth);
+    //         let monthlyInterest = h;
+    //         let monthlyAll = monthlyRepay.plus(monthlyInterest);
+    //         const surplus = loanCalc.minus(a.times(n));
+    //         return {
+    //             monthlyRepay: monthlyRepay.toFixed(2),  // 月供本金
+    //             monthlyInterest: monthlyInterest.toFixed(2), // 月供利息
+    //             monthlyAll: monthlyAll.toFixed(2), // 月供 = 月供本金 + 月供利息
+    //             surplus: surplus.toFixed(2)
+    //         }
+    //     }
+    //     let calcDataArray = [];
+    //     for(let i=0;i<m;i++){
+    //         calcDataArray.push(calcMonthly(i));
+    //     }
+    //     return calcDataArray
+    // }
     return {
         type: "等额本金",
         loan: oldLoan.toFixed(2),
@@ -65,8 +72,8 @@ var capitalCalc = function (loan, year, rate) {
         interest: interest.toFixed(2),
         months: months.toString(),
         repaymentMonthly: repaymentMonthly.toFixed(2),
-        incomeMonthly: incomeMonthly.toString(),
-        monthlyData: calc
+        incomeMonthly: incomeMonthly.toFixed(2),
+        monthlyData: ''
     };
 };
 exports.capitalCalc = capitalCalc;

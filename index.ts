@@ -41,8 +41,8 @@ const fixCalc = function(loan: number, year: number, rate: number):DataBase {
             interest: interest.toFixed(2), // 总利息
             months: months.toString(), // 贷款总月份数
             repaymentMonthly: repaymentMonthly.toFixed(2), // 每月月供额
-            incomeMonthly: incomeMonthly.toString(),
-            monthlyData: []
+            incomeMonthly: incomeMonthly.toFixed(2),
+            monthlyData: ''
         }
 }
 
@@ -70,20 +70,27 @@ const capitalCalc = function(loan: number, year: number, rate: number): DataBase
 
     const incomeMonthly: Big = repaymentMonthly.times(2);
 
-    function calc(n: number): monthlyData{
-        let monthlyRepay = a;
-        const g = loanCalc.minus(a.times(n-1));
-        const h = g.times(rateMounth);
-        let monthlyInterest = h;
-        let monthlyAll = monthlyRepay.plus(monthlyInterest);
-        const surplus = loanCalc.minus(a.times(n));
-        return {
-            monthlyRepay: monthlyRepay.toFixed(2),  // 月供本金
-            monthlyInterest: monthlyInterest.toFixed(2), // 月供利息
-            monthlyAll: monthlyAll.toFixed(2), // 月供 = 月供本金 + 月供利息
-            surplus: surplus.toFixed(2)
-        }
-    }
+    // function calc(n: number, m: number): Array<number>{
+    //     const calcMonthly = (n: number)=>{
+    //         let monthlyRepay = a;
+    //         const g = loanCalc.minus(a.times(n-1));
+    //         const h = g.times(rateMounth);
+    //         let monthlyInterest = h;
+    //         let monthlyAll = monthlyRepay.plus(monthlyInterest);
+    //         const surplus = loanCalc.minus(a.times(n));
+    //         return {
+    //             monthlyRepay: monthlyRepay.toFixed(2),  // 月供本金
+    //             monthlyInterest: monthlyInterest.toFixed(2), // 月供利息
+    //             monthlyAll: monthlyAll.toFixed(2), // 月供 = 月供本金 + 月供利息
+    //             surplus: surplus.toFixed(2)
+    //         }
+    //     }
+    //     let calcDataArray = [];
+    //     for(let i=0;i<m;i++){
+    //         calcDataArray.push(calcMonthly(i));
+    //     }
+    //     return calcDataArray
+    // }
 
     return {
         type: "等额本金",
@@ -92,8 +99,8 @@ const capitalCalc = function(loan: number, year: number, rate: number): DataBase
         interest: interest.toFixed(2), // 总利息
         months: months.toString(), // 贷款总月份数
         repaymentMonthly: repaymentMonthly.toFixed(2), // 每月月供额
-        incomeMonthly: incomeMonthly.toString(),
-        monthlyData: calc,
+        incomeMonthly: incomeMonthly.toFixed(2),
+        monthlyData: '',
     }
 
 }
