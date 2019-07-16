@@ -42,7 +42,7 @@ const fixCalc = function(loan: number, year: number, rate: number):DataBase {
             months: months.toString(), // 贷款总月份数
             repaymentMonthly: repaymentMonthly.toFixed(2), // 每月月供额
             incomeMonthly: incomeMonthly.toString(),
-            monthlyData: [1,2,3]
+            monthlyData: []
         }
 }
 

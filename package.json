@@ -1,6 +1,6 @@
 {
   "name": "housingloan-calc",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "housing loan calc for Chinese",
   "main": "index.js",
   "scripts": {
@@ -14,6 +14,8 @@
     "housing",
     "loan",
     "calc",
+    "China",
+    "房贷",
     "房贷计算器"
   ],
   "author": "watership",
@@ -22,8 +24,10 @@
     "url": "https://github.com/watership/housing-loan-calc/issues"
   },
   "homepage": "https://github.com/watership/housing-loan-calc#readme",
+  "devDependencies":{
+    "@types/big.js": "^4.0.5"
+  },
   "dependencies": {
-    "@types/big.js": "^4.0.5",
     "big.js": "^5.2.2"
   }
 }
