@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/watership/housing-loan-calc#readme",
   "dependencies": {
+    "@types/big.js": "^4.0.5",
     "big.js": "^5.2.2"
   }
 }
