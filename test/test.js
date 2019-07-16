@@ -7,3 +7,4 @@ const Result = housingloanCalc.fixCalc(loan, year, rate);
 const Result2 = housingloanCalc.capitalCalc(loan, year, rate);
 
 console.log(Result)
+console.log(Result2)

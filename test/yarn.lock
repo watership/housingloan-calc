@@ -7,9 +7,9 @@ big.js@^5.2.2:
   resolved "https://registry.npm.taobao.org/big.js/download/big.js-5.2.2.tgz#65f0af382f578bcdc742bd9c281e9cb2d7768328"
   integrity sha1-ZfCvOC9Xi83HQr2cKB6cstd2gyg=
 
-housingloan-calc@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.npm.taobao.org/housingloan-calc/download/housingloan-calc-1.0.2.tgz#a9e8c9a6e93405a13b689da31176218ce3d3413c"
-  integrity sha1-qejJpuk0BaE7aJ2jEXYhjOPTQTw=
+housingloan-calc@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/housingloan-calc/-/housingloan-calc-1.1.0.tgz#ae26ba3ec007bf0f68ef25e178dafa96afee852a"
+  integrity sha512-gn8gYtI8Hpvh/5ZBmKiXLkmQqZXbGVuZeaJuf2XbQqUdj5lVbTrW5BtpuKf4p9OYQpZ8rPz49Y130aShwWEuEw==
   dependencies:
     big.js "^5.2.2"

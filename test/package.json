@@ -9,6 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "housingloan-calc": "^1.0.2"
+    "housingloan-calc": "^1.1.0"
   }
 }
