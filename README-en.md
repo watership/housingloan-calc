@@ -1,6 +1,6 @@
  English | [简体中文](README.md)
 
-# HousingLoanCalc for China
+# housingloan-calc for China
 
 ![npm](https://img.shields.io/npm/dm/housingloan-calc.svg)  [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/watership/housing-loan-calc/blob/master/LICENSE)
 

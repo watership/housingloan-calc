@@ -1,6 +1,6 @@
  [English](README-en.md) | 简体中文
 
-# HousingLoanCalc 房贷计算器
+# housingloan-calc 房贷计算器
 
 ![npm](https://img.shields.io/npm/dm/housingloan-calc.svg)  [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/watership/housing-loan-calc/blob/master/LICENSE)
 
