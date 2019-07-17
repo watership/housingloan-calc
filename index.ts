@@ -32,13 +32,13 @@ const fixCalc = function(loan: number, year: number, rate: number):housingloanBa
         const repaymentMonthly: Big = b.div(c);
 
         // 总利息
-        const interest: Big = (repaymentMonthly.times(months)).minus(loanCalc).div(10000);
+        const interest: Big = (repaymentMonthly.times(months)).minus(loanCalc);
         // 总还款额
-        const total: Big = Big(oldLoan).plus(interest);
+        const total: Big = loanCalc.plus(interest);
         // 建议月流水
         const incomeMonthly: Big = repaymentMonthly.times(2);
         // 月供本金
-        const monthlyRepay: Big = Big(loanCalc).div(months);
+        const monthlyRepay: Big = loanCalc.div(months);
         // 月供利息
         const monthlyInterest: Big = interest.div(months);
         // 月供 = 月供本金 + 月供利息
@@ -46,7 +46,7 @@ const fixCalc = function(loan: number, year: number, rate: number):housingloanBa
 
         let calcDataArray = [];
         for(let i=0;i<months;i++){
-            const surplus: Big = Big(oldLoan).minus(monthlyRepay.plus(i))
+            const surplus: Big = loanCalc.minus(monthlyRepay.plus(i))
             calcDataArray.push({
                 monthlyRepay: monthlyRepay.toFixed(2),  // 月供本金
                 monthlyInterest: monthlyInterest.toFixed(2), // 月供利息
@@ -85,9 +85,9 @@ const capitalCalc = function(loan: number, year: number, rate: number): housingl
     
 
     // 总利息
-    const interest: Big = ((d.div(2)).times(months).minus(loanCalc)).div(10000);
+    const interest: Big = ((d.div(2)).times(months).minus(loanCalc));
     // 总还款额
-    const total: Big = Big(oldLoan).plus(interest);
+    const total: Big = loanCalc.plus(interest);
     // 每月月供额
     const repaymentMonthly: Big =  e.plus(f);
     // 建议月流水
@@ -127,3 +127,9 @@ const capitalCalc = function(loan: number, year: number, rate: number): housingl
 
 
 export { fixCalc, capitalCalc }
+
+// test demo
+const [loan, year, rate] = [100, 30, 4.9];
+
+// console.log(fixCalc(loan, year, rate))
+console.log(capitalCalc(loan, year, rate))

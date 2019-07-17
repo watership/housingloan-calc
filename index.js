@@ -13,20 +13,20 @@ var fixCalc = function (loan, year, rate) {
     var c = a.minus(1);
     var repaymentMonthly = b.div(c);
     // 总利息
-    var interest = (repaymentMonthly.times(months)).minus(loanCalc).div(10000);
+    var interest = (repaymentMonthly.times(months)).minus(loanCalc);
     // 总还款额
-    var total = big_js_1["default"](oldLoan).plus(interest);
+    var total = loanCalc.plus(interest);
     // 建议月流水
     var incomeMonthly = repaymentMonthly.times(2);
     // 月供本金
-    var monthlyRepay = big_js_1["default"](loanCalc).div(months);
+    var monthlyRepay = loanCalc.div(months);
     // 月供利息
     var monthlyInterest = interest.div(months);
     // 月供 = 月供本金 + 月供利息
     var monthlyAll = total.div(months);
     var calcDataArray = [];
     for (var i = 0; i < months; i++) {
-        var surplus = big_js_1["default"](oldLoan).minus(monthlyRepay.plus(i));
+        var surplus = loanCalc.minus(monthlyRepay.plus(i));
         calcDataArray.push({
             monthlyRepay: monthlyRepay.toFixed(2),
             monthlyInterest: monthlyInterest.toFixed(2),
@@ -60,9 +60,9 @@ var capitalCalc = function (loan, year, rate) {
     var e = loanCalc.div(months);
     var f = loanCalc.times(rateMounth);
     // 总利息
-    var interest = ((d.div(2)).times(months).minus(loanCalc)).div(10000);
+    var interest = ((d.div(2)).times(months).minus(loanCalc));
     // 总还款额
-    var total = big_js_1["default"](oldLoan).plus(interest);
+    var total = loanCalc.plus(interest);
     // 每月月供额
     var repaymentMonthly = e.plus(f);
     // 建议月流水
@@ -97,3 +97,7 @@ var capitalCalc = function (loan, year, rate) {
     };
 };
 exports.capitalCalc = capitalCalc;
+// test demo
+var _a = [100, 30, 4.9], loan = _a[0], year = _a[1], rate = _a[2];
+// console.log(fixCalc(loan, year, rate))
+console.log(capitalCalc(loan, year, rate));
