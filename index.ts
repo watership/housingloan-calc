@@ -19,6 +19,7 @@ interface monthlyData {
 }
 
 const fixCalc = function(loan: number, year: number, rate: number):housingloanBase {
+        // 总贷款额
         let oldLoan = loan;
         let loanCalc: Big = Big(loan).times(10000);
         let months: number = parseInt(Big(year).times(12).toFixed(0));
@@ -30,9 +31,29 @@ const fixCalc = function(loan: number, year: number, rate: number):housingloanBa
         const c: Big = a.minus(1)
         const repaymentMonthly: Big = b.div(c);
 
+        // 总利息
         const interest: Big = (repaymentMonthly.times(months)).minus(loanCalc).div(10000);
+        // 总还款额
         const total: Big = Big(oldLoan).plus(interest);
+        // 建议月流水
         const incomeMonthly: Big = repaymentMonthly.times(2);
+        // 月供本金
+        const monthlyRepay: Big = Big(loanCalc).div(months);
+        // 月供利息
+        const monthlyInterest: Big = interest.div(months);
+        // 月供 = 月供本金 + 月供利息
+        const monthlyAll: Big = total.div(months)
+
+        let calcDataArray = [];
+        for(let i=0;i<months;i++){
+            const surplus: Big = Big(oldLoan).minus(monthlyRepay.plus(i))
+            calcDataArray.push({
+                monthlyRepay: monthlyRepay.toFixed(2),  // 月供本金
+                monthlyInterest: monthlyInterest.toFixed(2), // 月供利息
+                monthlyAll: monthlyAll.toFixed(2), // 月供 = 月供本金 + 月供利息
+                surplus: surplus.toFixed(2) // 剩余本金
+            });
+        }
 
         return {
             type: "等额本息",
@@ -42,12 +63,14 @@ const fixCalc = function(loan: number, year: number, rate: number):housingloanBa
             months: months.toString(), // 贷款总月份数
             repaymentMonthly: repaymentMonthly.toFixed(2), // 每月月供额
             incomeMonthly: incomeMonthly.toFixed(2),
-            monthlyData: ''
+            monthlyData: calcDataArray
         }
 }
 
 const capitalCalc = function(loan: number, year: number, rate: number): housingloanBase {
+    // 总贷款额
     let oldLoan = loan;
+
     let loanCalc: Big = Big(loan).times(10000);
     let months: number = parseInt(Big(year).times(12).toString());
     let rateCalc: Big = Big(rate).div(100);
@@ -65,32 +88,29 @@ const capitalCalc = function(loan: number, year: number, rate: number): housingl
     const interest: Big = ((d.div(2)).times(months).minus(loanCalc)).div(10000);
     // 总还款额
     const total: Big = Big(oldLoan).plus(interest);
-
+    // 每月月供额
     const repaymentMonthly: Big =  e.plus(f);
-
+    // 建议月流水
     const incomeMonthly: Big = repaymentMonthly.times(2);
 
-    // function calc(n: number, m: number): Array<number>{
-    //     const calcMonthly = (n: number)=>{
-    //         let monthlyRepay = a;
-    //         const g = loanCalc.minus(a.times(n-1));
-    //         const h = g.times(rateMounth);
-    //         let monthlyInterest = h;
-    //         let monthlyAll = monthlyRepay.plus(monthlyInterest);
-    //         const surplus = loanCalc.minus(a.times(n));
-    //         return {
-    //             monthlyRepay: monthlyRepay.toFixed(2),  // 月供本金
-    //             monthlyInterest: monthlyInterest.toFixed(2), // 月供利息
-    //             monthlyAll: monthlyAll.toFixed(2), // 月供 = 月供本金 + 月供利息
-    //             surplus: surplus.toFixed(2)
-    //         }
-    //     }
-    //     let calcDataArray = [];
-    //     for(let i=0;i<m;i++){
-    //         calcDataArray.push(calcMonthly(i));
-    //     }
-    //     return calcDataArray
-    // }
+    const calcMonthly = (n: number)=>{
+        let monthlyRepay = a;
+        const g = loanCalc.minus(a.times(n-1));
+        const h = g.times(rateMounth);
+        let monthlyInterest = h;
+        let monthlyAll = monthlyRepay.plus(monthlyInterest);
+        const surplus = loanCalc.minus(a.times(n));
+        return {
+            monthlyRepay: monthlyRepay.toFixed(2),  // 月供本金
+            monthlyInterest: monthlyInterest.toFixed(2), // 月供利息
+            monthlyAll: monthlyAll.toFixed(2), // 月供 = 月供本金 + 月供利息
+            surplus: surplus.toFixed(2) // 剩余本金
+        }
+    }
+    let calcDataArray = [];
+    for(let i=0;i<months;i++){
+        calcDataArray.push(calcMonthly(i));
+    }
 
     return {
         type: "等额本金",
@@ -100,7 +120,7 @@ const capitalCalc = function(loan: number, year: number, rate: number): housingl
         months: months.toString(), // 贷款总月份数
         repaymentMonthly: repaymentMonthly.toFixed(2), // 每月月供额
         incomeMonthly: incomeMonthly.toFixed(2),
-        monthlyData: '',
+        monthlyData: calcDataArray,
     }
 
 }
